@@ -2,9 +2,10 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2303050e' rx='6'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%2330dcff' stroke-width='1.5' opacity='0.4'/><text x='16' y='13' text-anchor='middle' font-size='7' font-weight='bold' font-family='monospace' fill='%2330dcff'>TAI</text><text x='16' y='25' text-anchor='middle' font-size='11'>⚙️</text></svg>">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2303050e' rx='4'/%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%2330dcff' stroke-width='2'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='9' font-weight='900' font-family='monospace' fill='%2330dcff'%3ETAI%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+<rect width='32' height='32' fill='%2303050e' rx='6'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%2330dcff' stroke-width='1.5' opacity='0.4'/><text x='16' y='13' text-anchor='middle' font-size='7' font-weight='bold' font-family='monospace' fill='%2330dcff'>TAI</text><text x='16' y='25' text-anchor='middle' font-size='11'>⚙️</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TradeAI — МедТех · LABS67</title>
+<title id="pageTitle">TradeAI — Тэхналогіі для медыцыны · LABS67</title>
 <meta name="description" content="TradeAI — технологические разработки концерна LABS67 для клиник, аптек и медицинских пространств.">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -641,6 +642,15 @@ const i18n = {
     chat_online: '● Online',
   },
 };
+
+const pageTitles = {
+  by: 'TradeAI — Тэхналогіі для медыцыны · LABS67',
+  ua: 'TradeAI — Технології для медицини · LABS67',
+  en: 'TradeAI — Technologies for Medicine · LABS67',
+  pl: 'TradeAI — Technologie dla Medycyny · LABS67',
+  fr: 'TradeAI — Technologies pour la Médecine · LABS67',
+  de: 'TradeAI — Technologien für die Medizin · LABS67',
+};
 let currentLang = localStorage.getItem('labs67_lang') || 'by';
 
 function setLang(lang) {
@@ -648,6 +658,7 @@ function setLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
   localStorage.setItem('labs67_lang', lang);
+  if (pageTitles && pageTitles[lang]) document.title = pageTitles[lang];
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (i18n[lang] && i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
