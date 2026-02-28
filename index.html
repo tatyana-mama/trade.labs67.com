@@ -227,21 +227,19 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="h-eyebrow">// TradeAI · Концерн LABS67</div>
-    <h1 class="hero-title">
-      Медтех<br><span class="ac">решения</span>
-    </h1>
-    <p class="hero-sub">Технологические разработки концерна LABS67 на открытом рынке. Готовые к развёртыванию системы для клиник, аптек и медицинских пространств любого масштаба.</p>
+    <div class="h-eyebrow" data-i18n="hero_tag">// TradeAI · Концерн LABS67</div>
+    <h1 class="hero-title" data-i18n="hero_h1">Медтех<br><span class="ac">решения</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Технологические разработки концерна LABS67 на открытом рынке.</p>
     <div class="hero-btns">
-      <a href="#products" class="btn-cyan">// Смотреть решения</a>
-      <a href="#contact" class="btn-out">Получить каталог →</a>
+      <a href="#products" class="btn-cyan" data-i18n="btn1">// Смотреть решения</a>
+      <a href="#contact" class="btn-out" data-i18n="btn2">Получить каталог →</a>
     </div>
   </div>
 </section>
 
 <section class="products-sec" id="products">
-  <div class="sec-tag">// Продукты</div>
-  <h2 class="sec-title">Три <span class="ac">флагмана</span></h2>
+  <div class="sec-tag" data-i18n="prod_tag">// Продукты</div>
+  <h2 class="sec-title" data-i18n="prod_title">Три <span class="ac">флагмана</span></h2>
   <div class="prod-grid">
     <div class="prod-card">
       <div class="pc-tag">PRODUCT_01 · CORE</div>
@@ -289,8 +287,8 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 </section>
 
 <section class="who-sec" id="who">
-  <div class="sec-tag">// Для кого</div>
-  <h2 class="sec-title">Наши <span class="ac">клиенты</span></h2>
+  <div class="sec-tag" data-i18n="who_tag">// Для кого</div>
+  <h2 class="sec-title" data-i18n="who_title">Наши <span class="ac">клиенты</span></h2>
   <div class="who-grid">
     <div class="who-card">
       <span class="wh-ico">🦷</span>
@@ -316,8 +314,8 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 </section>
 
 <section class="how-sec" id="how">
-  <div class="sec-tag">// Как купить</div>
-  <h2 class="sec-title">Просто и <span class="ac">быстро</span></h2>
+  <div class="sec-tag" data-i18n="how_tag">// Как купить</div>
+  <h2 class="sec-title" data-i18n="how_title">Просто и <span class="ac">быстро</span></h2>
   <div class="how-grid">
     <div class="how-steps">
       <div class="hs-item">
@@ -350,8 +348,8 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 </section>
 
 <section class="contact-sec" id="contact">
-  <div class="sec-tag">// Запрос</div>
-  <h2 class="sec-title">Получите <span class="ac">каталог</span></h2>
+  <div class="sec-tag" data-i18n="contact_tag">// Запрос</div>
+  <h2 class="sec-title" data-i18n="contact_title">Получите <span class="ac">каталог</span></h2>
   <div class="contact-grid">
     <div>
       <p class="sec-lead" style="margin-bottom:24px;">Оставьте заявку — пришлём полный каталог с техническими спецификациями и ценами.</p>
@@ -360,7 +358,7 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
       <div class="cinfo"><div class="ci-icon">🌐</div><div><span class="ci-lbl">Концерн</span><span class="ci-val">labs67.com</span></div></div>
     </div>
     <div class="cform">
-      <div class="cf-hdr"><span class="cf-t">// ЗАПРОС КАТАЛОГА</span><span class="cf-id" id="fid">TRQ_XXXXX</span></div>
+      <div class="cf-hdr"><span class="cf-t" data-i18n="form_title">// ЗАПРОС КАТАЛОГА</span><span class="cf-id" id="fid">TRQ_XXXXX</span></div>
       <div class="fr">
         <div class="fg"><label class="fl">Имя</label><input type="text" class="fi" placeholder="Ваше имя"></div>
         <div class="fg"><label class="fl">Телефон</label><input type="tel" class="fi" placeholder="+48 571 719 800"></div>
@@ -431,59 +429,83 @@ function tSubmit(){const b=document.querySelector('.fsub');b.textContent='// О�
 <script>
 // ── I18N ──
 const i18n = {
-  by: {
-    title: 'TradeAI — Тэхналогіі для медыцыны · LABS67',
-    nav_cta: 'Атрымаць каталог',
-    hero_tag: '// МедТэх · ІІ · Рашэнні',
-    hero_h1_1: 'Тэхналогіі',
-    hero_h1_2: 'для медыцыны',
-    hero_sub: 'Разработкі канцэрна LABS67 — даступныя рынку. Гатовыя ІІ-рашэнні для клінік, аптэк і лабараторый.',
-    back: '← LABS67',
+  by:{
+    title:'TradeAI — МедТэх рашэнні · LABS67',
+    nav_cta:'Атрымаць каталог',
+    hero_tag:'// TradeAI · Канцэрн LABS67',
+    hero_h1:'МедТэх<br><span class="ac">рашэнні</span>',
+    hero_sub:'Тэхналагічныя распрацоўкі канцэрна LABS67 на адкрытым рынку. Гатовыя да разгортвання сістэмы для клінік, аптэк і медыцынскіх прастораў.',
+    btn1:'// Паглядзець рашэнні',btn2:'Атрымаць каталог →',
+    prod_tag:'// Прадукты',prod_title:'Тры <span class="ac">флагманы</span>',
+    who_tag:'// Для каго',who_title:'Нашы <span class="ac">кліенты</span>',
+    how_tag:'// Як купіць',how_title:'Проста і <span class="ac">хутка</span>',
+    contact_tag:'// Запыт',contact_title:'Атрымайце <span class="ac">каталог</span>',
+    form_title:'// ЗАПЫТ КАТАЛОГА',
   },
-  ua: {
-    title: 'TradeAI — Технології для медицини · LABS67',
-    nav_cta: 'Отримати каталог',
-    hero_tag: '// МедТех · ШІ · Рішення',
-    hero_h1_1: 'Технології',
-    hero_h1_2: 'для медицини',
-    hero_sub: 'Розробки концерну LABS67 — доступні ринку. Готові ШІ-рішення для клінік, аптек і лабораторій.',
-    back: '← LABS67',
+  ua:{
+    title:'TradeAI — МедТех рішення · LABS67',
+    nav_cta:'Отримати каталог',
+    hero_tag:'// TradeAI · Концерн LABS67',
+    hero_h1:'МедТех<br><span class="ac">рішення</span>',
+    hero_sub:'Технологічні розробки концерну LABS67 на відкритому ринку. Готові до розгортання системи для клінік, аптек і медичних просторів.',
+    btn1:'// Переглянути рішення',btn2:'Отримати каталог →',
+    prod_tag:'// Продукти',prod_title:'Три <span class="ac">флагмани</span>',
+    who_tag:'// Для кого',who_title:'Наші <span class="ac">клієнти</span>',
+    how_tag:'// Як придбати',how_title:'Просто і <span class="ac">швидко</span>',
+    contact_tag:'// Запит',contact_title:'Отримайте <span class="ac">каталог</span>',
+    form_title:'// ЗАПИТ КАТАЛОГУ',
   },
-  en: {
-    title: 'TradeAI — Technologies for Medicine · LABS67',
-    nav_cta: 'Get catalogue',
-    hero_tag: '// MedTech · AI · Solutions',
-    hero_h1_1: 'Technologies',
-    hero_h1_2: 'for Medicine',
-    hero_sub: 'LABS67 concern developments — available to the market. Ready AI solutions for clinics, pharmacies and laboratories.',
-    back: '← LABS67',
+  en:{
+    title:'TradeAI — MedTech Solutions · LABS67',
+    nav_cta:'Get catalogue',
+    hero_tag:'// TradeAI · LABS67 Concern',
+    hero_h1:'MedTech<br><span class="ac">solutions</span>',
+    hero_sub:'LABS67 concern's technological developments on the open market. Ready-to-deploy systems for clinics, pharmacies and medical spaces of any scale.',
+    btn1:'// View solutions',btn2:'Get catalogue →',
+    prod_tag:'// Products',prod_title:'Three <span class="ac">flagships</span>',
+    who_tag:'// Who it's for',who_title:'Our <span class="ac">clients</span>',
+    how_tag:'// How to buy',how_title:'Simple and <span class="ac">fast</span>',
+    contact_tag:'// Request',contact_title:'Get the <span class="ac">catalogue</span>',
+    form_title:'// CATALOGUE REQUEST',
   },
-  pl: {
-    title: 'TradeAI — Technologie dla Medycyny · LABS67',
-    nav_cta: 'Pobierz katalog',
-    hero_tag: '// MedTech · AI · Rozwiązania',
-    hero_h1_1: 'Technologie',
-    hero_h1_2: 'dla Medycyny',
-    hero_sub: 'Rozwiązania koncernu LABS67 — dostępne na rynku. Gotowe systemy AI dla klinik, aptek i laboratoriów.',
-    back: '← LABS67',
+  pl:{
+    title:'TradeAI — Rozwiązania MedTech · LABS67',
+    nav_cta:'Pobierz katalog',
+    hero_tag:'// TradeAI · Koncern LABS67',
+    hero_h1:'Rozwiązania<br><span class="ac">MedTech</span>',
+    hero_sub:'Opracowania technologiczne koncernu LABS67 na otwartym rynku. Systemy gotowe do wdrożenia dla klinik, aptek i przestrzeni medycznych.',
+    btn1:'// Zobacz rozwiązania',btn2:'Pobierz katalog →',
+    prod_tag:'// Produkty',prod_title:'Trzy <span class="ac">flagowce</span>',
+    who_tag:'// Dla kogo',who_title:'Nasi <span class="ac">klienci</span>',
+    how_tag:'// Jak kupić',how_title:'Prosto i <span class="ac">szybko</span>',
+    contact_tag:'// Zapytanie',contact_title:'Pobierz <span class="ac">katalog</span>',
+    form_title:'// ZAPYTANIE O KATALOG',
   },
-  fr: {
-    title: 'TradeAI — Technologies pour la Médecine · LABS67',
-    nav_cta: 'Obtenir le catalogue',
-    hero_tag: '// MedTech · IA · Solutions',
-    hero_h1_1: 'Technologies',
-    hero_h1_2: 'pour la Médecine',
-    hero_sub: 'Les développements du groupe LABS67 — disponibles sur le marché. Solutions IA prêtes pour cliniques, pharmacies et laboratoires.',
-    back: '← LABS67',
+  fr:{
+    title:'TradeAI — Solutions MedTech · LABS67',
+    nav_cta:'Obtenir le catalogue',
+    hero_tag:'// TradeAI · Groupe LABS67',
+    hero_h1:'Solutions<br><span class="ac">MedTech</span>',
+    hero_sub:'Développements technologiques du groupe LABS67 sur le marché ouvert. Systèmes prêts à déployer pour cliniques, pharmacies et espaces médicaux.',
+    btn1:'// Voir les solutions',btn2:'Obtenir le catalogue →',
+    prod_tag:'// Produits',prod_title:'Trois <span class="ac">phares</span>',
+    who_tag:'// Pour qui',who_title:'Nos <span class="ac">clients</span>',
+    how_tag:'// Comment acheter',how_title:'Simple et <span class="ac">rapide</span>',
+    contact_tag:'// Demande',contact_title:'Obtenez le <span class="ac">catalogue</span>',
+    form_title:'// DEMANDE DE CATALOGUE',
   },
-  de: {
-    title: 'TradeAI — Technologien für die Medizin · LABS67',
-    nav_cta: 'Katalog anfordern',
-    hero_tag: '// MedTech · KI · Lösungen',
-    hero_h1_1: 'Technologien',
-    hero_h1_2: 'für die Medizin',
-    hero_sub: 'LABS67-Konzernentwicklungen — auf dem Markt verfügbar. Einsatzbereite KI-Lösungen für Kliniken, Apotheken und Labore.',
-    back: '← LABS67',
+  de:{
+    title:'TradeAI — MedTech-Lösungen · LABS67',
+    nav_cta:'Katalog anfordern',
+    hero_tag:'// TradeAI · LABS67 Konzern',
+    hero_h1:'MedTech-<br><span class="ac">Lösungen</span>',
+    hero_sub:'Technologische Entwicklungen des LABS67-Konzerns auf dem offenen Markt. Einsatzbereite Systeme für Kliniken, Apotheken und medizinische Räume.',
+    btn1:'// Lösungen ansehen',btn2:'Katalog anfordern →',
+    prod_tag:'// Produkte',prod_title:'Drei <span class="ac">Flaggschiffe</span>',
+    who_tag:'// Für wen',who_title:'Unsere <span class="ac">Kunden</span>',
+    how_tag:'// Wie kaufen',how_title:'Einfach und <span class="ac">schnell</span>',
+    contact_tag:'// Anfrage',contact_title:'Katalog <span class="ac">anfordern</span>',
+    form_title:'// KATALOGANFRAGE',
   },
 };
 let currentLang = localStorage.getItem('labs67_lang_trade') || 'by';
