@@ -4,13 +4,15 @@
 <meta charset="UTF-8">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2330dcff' rx='4'/%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%2303050e' stroke-width='1'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='9' font-weight='900' font-family='monospace' fill='%2303050e'%3ETAI%3C/text%3E%3C/svg%3E" type="image/svg+xml"><link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%2330dcff'/%3E%3Cpolygon points='90,12 168,51 168,129 90,168 12,129 12,51' fill='%2303050e' fill-opacity='.2'/%3E%3Ctext x='90' y='115' text-anchor='middle' font-size='46' font-weight='900' font-family='monospace' fill='%2303050e'%3ETAI%3C/text%3E%3C/svg%3E"><meta name="theme-color" content="#03050e">
 <rect width='32' height='32' fill='%2303050e' rx='6'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%2330dcff' stroke-width='1.5' opacity='0.4'/><text x='16' y='13' text-anchor='middle' font-size='7' font-weight='bold' font-family='monospace' fill='%2330dcff'>TAI</text><text x='16' y='25' text-anchor='middle' font-size='11'>⚙️</text></svg>">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title id="pageTitle">TradeAI — Тэхналогіі для медыцыны · LABS67</title>
 <meta name="description" content="TradeAI — технологические разработки концерна LABS67 для клиник, аптек и медицинских пространств.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#030810;--bg2:#050c18;--panel:#07101f;--b1:rgba(255,255,255,0.07);--b2:rgba(255,255,255,0.14);--cyan:#30dcff;--cyan2:#80f0ff;--cyan-dim:rgba(48,220,255,0.42);--gold:#e8b840;--green:#1df59a;--red:#ff4d6d;--text:#cce8f5;--muted:rgba(140,185,210,0.44);}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;overflow-x:hidden;}
 body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(48,220,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(48,220,255,0.02) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;}
 nav{position:fixed;top:0;left:0;right:0;z-index:999;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 44px;background:rgba(3,8,16,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);}
@@ -183,7 +185,24 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 @media(max-width:768px){
   .cw{width:90vw;max-width:90vw;margin:20px auto;right:0;}
 }
-
+/* ── MOBILE OPTIMIZATION ── */
+*,*::before,*::after{box-sizing:border-box;}
+button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+input,textarea,select{font-size:1rem !important;}
+@media(max-width:480px){
+  .hero{padding:60px 16px 40px !important;}
+  .hero-title{font-size:clamp(2rem,8vw,3rem) !important;}
+  .hero-sub{font-size:0.85rem;line-height:1.7;margin-bottom:32px;}
+  .hero-btns{flex-direction:column;align-items:stretch;gap:10px;}
+  .section,.products-sec,.who-sec,.how-sec,.contact-sec{padding:48px 16px !important;}
+  .prod-grid,.who-grid,.how-grid,.contact-grid{grid-template-columns:1fr !important;}
+  .prod-card,.how-card{padding:22px 16px !important;}
+  footer{padding:28px 16px;}
+  nav{padding:0 12px;}
+  .online-txt{display:none;}
+  .nav-cta{padding:6px 10px;font-size:0.48rem;}
+}
 </style>
 </head>
 <body>
