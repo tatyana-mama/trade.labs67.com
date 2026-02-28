@@ -165,13 +165,24 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 }
 
 /* ── LANG SWITCHER ── */
-.lang-switcher{display:flex;gap:2px;border:1px solid var(--b1);margin-left:8px;}
+.lang-switcher{display:flex;gap:2px;border:1px solid var(--b1);margin-left:8px;position:relative;}
 .lang-btn{display:flex;align-items:center;gap:4px;padding:5px 7px;background:transparent;border:none;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:0.48rem;letter-spacing:0.1em;color:var(--muted);transition:all 0.2s;border-right:1px solid var(--b1);}
 .lang-btn:last-child{border-right:none;}
 .lang-btn:hover,.lang-btn.active{color:var(--gold);background:rgba(232,184,64,0.07);}
 .lang-flag{width:16px;height:10px;display:inline-block;vertical-align:middle;}
 .lang-code{display:inline;}
-@media(max-width:768px){.lang-code{display:none;}.lang-btn{padding:5px 5px;}}
+.lang-dropdown-btn{display:none;}
+.lang-dropdown-menu{display:none;position:absolute;top:100%;right:0;background:#09101f;border:1px solid var(--b1);z-index:200;min-width:120px;flex-direction:column;}
+.lang-dropdown-menu.open{display:flex;}
+.lang-dropdown-menu .lang-btn{border-right:none;border-bottom:1px solid var(--b1);width:100%;padding:8px 12px;justify-content:flex-start;font-size:0.52rem;}
+.lang-dropdown-menu .lang-btn:last-child{border-bottom:none;}
+@media(max-width:768px){
+  .lang-switcher>.lang-btn{display:none;}
+  .lang-dropdown-btn{display:flex;align-items:center;gap:5px;padding:6px 10px;background:transparent;border:none;cursor:pointer;color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:0.5rem;}
+}
+@media(max-width:768px){
+  .cw{width:90vw;max-width:90vw;margin:20px auto;right:0;}
+}
 
 </style>
 </head>
@@ -194,13 +205,26 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
   <div class="nav-r">
     <a href="//labs67.com" class="back-link">← LABS67</a>
     
-    <div class="lang-switcher">
+    <div class="lang-switcher" id="langSwitcher">
       <button class="lang-btn active" onclick="setLang('by')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/><text x="9" y="9.5" text-anchor="middle" font-size="5" fill="white" font-family="serif">⚔</text></svg><span class="lang-code">BY</span></button>
       <button class="lang-btn" onclick="setLang('ua')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#005BBB"/><rect y="6" width="18" height="6" fill="#FFD500"/></svg><span class="lang-code">UA</span></button>
       <button class="lang-btn" onclick="setLang('en')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="12" fill="#012169"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#fff" stroke-width="2"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#C8102E" stroke-width="1"/><rect x="7" width="4" height="12" fill="#fff"/><rect y="4" width="18" height="4" fill="#fff"/><rect x="8" width="2" height="12" fill="#C8102E"/><rect y="5" width="18" height="2" fill="#C8102E"/></svg><span class="lang-code">EN</span></button>
       <button class="lang-btn" onclick="setLang('pl')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#fff"/><rect y="6" width="18" height="6" fill="#DC143C"/></svg><span class="lang-code">PL</span></button>
       <button class="lang-btn" onclick="setLang('fr')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="6" height="12" fill="#002395"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#ED2939"/></svg><span class="lang-code">FR</span></button>
       <button class="lang-btn" onclick="setLang('de')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#DD0000"/><rect y="8" width="18" height="4" fill="#FFCE00"/></svg><span class="lang-code">DE</span></button>
+      <!-- Mobile dropdown -->
+      <button class="lang-dropdown-btn" id="langDropBtn" onclick="toggleLangMenu()">
+        <svg id="langActiveFlagMob" class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/></svg>
+        <span id="langActiveCodeMob">BY</span> ▾
+      </button>
+      <div class="lang-dropdown-menu" id="langDropMenu">
+        <button class="lang-btn" onclick="setLang('by');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/></svg><span class="lang-code">BY</span></button>
+        <button class="lang-btn" onclick="setLang('ua');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#005BBB"/><rect y="6" width="18" height="6" fill="#FFD500"/></svg><span class="lang-code">UA</span></button>
+        <button class="lang-btn" onclick="setLang('en');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="12" fill="#012169"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#fff" stroke-width="2"/><rect x="7" width="4" height="12" fill="#fff"/><rect y="4" width="18" height="4" fill="#fff"/></svg><span class="lang-code">EN</span></button>
+        <button class="lang-btn" onclick="setLang('pl');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#fff"/><rect y="6" width="18" height="6" fill="#DC143C"/></svg><span class="lang-code">PL</span></button>
+        <button class="lang-btn" onclick="setLang('fr');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="6" height="12" fill="#002395"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#ED2939"/></svg><span class="lang-code">FR</span></button>
+        <button class="lang-btn" onclick="setLang('de');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#DD0000"/><rect y="8" width="18" height="4" fill="#FFCE00"/></svg><span class="lang-code">DE</span></button>
+      </div>
     </div>
     <a href="#contact" class="nav-cta" data-i18n="nav_cta">Атрымаць каталог</a>
   </div>
@@ -668,6 +692,26 @@ function setLang(lang) {
   const btns = document.querySelectorAll('.lang-btn');
   const idx = order.indexOf(lang);
   if (btns[idx]) btns[idx].classList.add('active');
+  const LANG_FLAGS = {
+    by:`<rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/>`,
+    ua:`<rect width="18" height="6" fill="#005BBB"/><rect y="6" width="18" height="6" fill="#FFD500"/>`,
+    en:`<rect width="18" height="12" fill="#012169"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#fff" stroke-width="2"/><rect x="7" width="4" height="12" fill="#fff"/><rect y="4" width="18" height="4" fill="#fff"/>`,
+    pl:`<rect width="18" height="6" fill="#fff"/><rect y="6" width="18" height="6" fill="#DC143C"/>`,
+    fr:`<rect width="6" height="12" fill="#002395"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#ED2939"/>`,
+    de:`<rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#DD0000"/><rect y="8" width="18" height="4" fill="#FFCE00"/>`
+  };
+  const flagMob = document.getElementById('langActiveFlagMob');
+  const codeMob = document.getElementById('langActiveCodeMob');
+  if(flagMob && LANG_FLAGS[lang]) flagMob.innerHTML = LANG_FLAGS[lang];
+  if(codeMob) codeMob.textContent = lang.toUpperCase();
 }
+function toggleLangMenu(){
+  const m=document.getElementById('langDropMenu');
+  if(m) m.classList.toggle('open');
+}
+document.addEventListener('click',e=>{
+  const sw=document.getElementById('langSwitcher');
+  if(sw&&!sw.contains(e.target)){const m=document.getElementById('langDropMenu');if(m)m.classList.remove('open');}
+});
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 </script>
