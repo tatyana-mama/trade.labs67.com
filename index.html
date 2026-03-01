@@ -163,15 +163,7 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 }
 
 /* ── LANG SWITCHER ── */
-.lang-switcher{display:flex;gap:2px;border:1px solid var(--b1);margin-left:8px;position:relative;}
-.lang-dropdown-btn{display:none;}
-.lang-dropdown-menu{display:none;position:absolute;top:100%;right:0;background:#09101f;border:1px solid var(--b1);z-index:500;min-width:100px;flex-direction:column;}
-.lang-dropdown-menu.open{display:flex;}
-.lang-dropdown-menu .lang-btn{border-right:none;border-bottom:1px solid var(--b1);width:100%;padding:8px 12px;}
-@media(max-width:768px){
-  .lang-switcher>.lang-btn{display:none;}
-  .lang-dropdown-btn{display:flex;align-items:center;gap:5px;padding:5px 10px;background:transparent;border:none;cursor:pointer;color:var(--gold,#e8b840);font-family:"JetBrains Mono",monospace;font-size:0.5rem;}
-}
+.lang-switcher{display:flex;gap:2px;border:1px solid var(--b1);margin-left:8px;}
 .lang-btn{display:flex;align-items:center;gap:4px;padding:5px 7px;background:transparent;border:none;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:0.48rem;letter-spacing:0.1em;color:var(--muted);transition:all 0.2s;border-right:1px solid var(--b1);}
 .lang-btn:last-child{border-right:none;}
 .lang-btn:hover,.lang-btn.active{color:var(--gold);background:rgba(232,184,64,0.07);}
@@ -200,26 +192,13 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
   <div class="nav-r">
     <a href="//labs67.com" class="back-link">← LABS67</a>
     
-    <div class="lang-switcher" id="langSwitcher">
+    <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('by')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/><text x="9" y="9.5" text-anchor="middle" font-size="5" fill="white" font-family="serif">⚔</text></svg><span class="lang-code">BY</span></button>
       <button class="lang-btn" onclick="setLang('ua')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#005BBB"/><rect y="6" width="18" height="6" fill="#FFD500"/></svg><span class="lang-code">UA</span></button>
       <button class="lang-btn" onclick="setLang('en')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="12" fill="#012169"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#fff" stroke-width="2"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#C8102E" stroke-width="1"/><rect x="7" width="4" height="12" fill="#fff"/><rect y="4" width="18" height="4" fill="#fff"/><rect x="8" width="2" height="12" fill="#C8102E"/><rect y="5" width="18" height="2" fill="#C8102E"/></svg><span class="lang-code">EN</span></button>
       <button class="lang-btn" onclick="setLang('pl')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#fff"/><rect y="6" width="18" height="6" fill="#DC143C"/></svg><span class="lang-code">PL</span></button>
       <button class="lang-btn" onclick="setLang('fr')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="6" height="12" fill="#002395"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#ED2939"/></svg><span class="lang-code">FR</span></button>
       <button class="lang-btn" onclick="setLang('de')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#DD0000"/><rect y="8" width="18" height="4" fill="#FFCE00"/></svg><span class="lang-code">DE</span></button>
-          <!-- Мобильный -->
-      <button class="lang-dropdown-btn" onclick="toggleLangMenu()">
-        <svg class="lang-flag" id="langActiveFlagMob" viewBox="0 0 18 12"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/></svg>
-        <span id="langActiveCodeMob">BY</span> ▾
-      </button>
-      <div class="lang-dropdown-menu" id="langDropMenu">
-        <button class="lang-btn" onclick="setLang('by');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/></svg><span class="lang-code">BY</span></button>
-        <button class="lang-btn" onclick="setLang('ua');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#005BBB"/><rect y="6" width="18" height="6" fill="#FFD500"/></svg><span class="lang-code">UA</span></button>
-        <button class="lang-btn" onclick="setLang('en');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="12" fill="#012169"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#fff" stroke-width="2"/><rect x="7" width="4" height="12" fill="#fff"/><rect y="4" width="18" height="4" fill="#fff"/><rect x="8" width="2" height="12" fill="#C8102E"/><rect y="5" width="18" height="2" fill="#C8102E"/></svg><span class="lang-code">EN</span></button>
-        <button class="lang-btn" onclick="setLang('pl');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#fff"/><rect y="6" width="18" height="6" fill="#DC143C"/></svg><span class="lang-code">PL</span></button>
-        <button class="lang-btn" onclick="setLang('fr');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="6" height="12" fill="#002395"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#ED2939"/></svg><span class="lang-code">FR</span></button>
-        <button class="lang-btn" onclick="setLang('de');toggleLangMenu()"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#DD0000"/><rect y="8" width="18" height="4" fill="#FFCE00"/></svg><span class="lang-code">DE</span></button>
-      </div>
     </div>
     <a href="#contact" class="nav-cta" data-i18n="nav_cta">Атрымаць каталог</a>
   </div>
@@ -227,26 +206,28 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="h-eyebrow" data-i18n="hero_tag">// TradeAI · Концерн LABS67</div>
-    <h1 class="hero-title" data-i18n="hero_h1">Медтех<br><span class="ac">решения</span></h1>
-    <p class="hero-sub" data-i18n="hero_sub">Технологические разработки концерна LABS67 на открытом рынке.</p>
+    <div class="h-eyebrow">// TradeAI · Концерн LABS67</div>
+    <h1 class="hero-title">
+      Медтех<br><span class="ac">решения</span>
+    </h1>
+    <p class="hero-sub">Технологические разработки концерна LABS67 на открытом рынке. Готовые к развёртыванию системы для клиник, аптек и медицинских пространств любого масштаба.</p>
     <div class="hero-btns">
-      <a href="#products" class="btn-cyan" data-i18n="btn1">// Смотреть решения</a>
-      <a href="#contact" class="btn-out" data-i18n="btn2">Получить каталог →</a>
+      <a href="#products" class="btn-cyan">// Смотреть решения</a>
+      <a href="#contact" class="btn-out">Получить каталог →</a>
     </div>
   </div>
 </section>
 
 <section class="products-sec" id="products">
-  <div class="sec-tag" data-i18n="prod_tag">// Продукты</div>
-  <h2 class="sec-title" data-i18n="prod_title">Три <span class="ac">флагмана</span></h2>
+  <div class="sec-tag">// Продукты</div>
+  <h2 class="sec-title">Три <span class="ac">флагмана</span></h2>
   <div class="prod-grid">
     <div class="prod-card">
       <div class="pc-tag">PRODUCT_01 · CORE</div>
       <span class="pc-ico">🤖</span>
-      <div class="pc-name" data-i18n="pn1">AI Core Kit</div>
-      <div class="pc-tagline" data-i18n="pt1">Интеллект для клиники</div>
-      <div class="pc-desc" data-i18n="pd1">Полный AI-стек на базе NVIDIA Jetson AGX Orin. Распознавание лиц, голосовые протоколы, видеоаналитика, анализ снимков. Развёртывание силами команды TradeAI — до 1 рабочего дня.</div>
+      <div class="pc-name">AI Core Kit</div>
+      <div class="pc-tagline">Интеллект для клиники</div>
+      <div class="pc-desc">Полный AI-стек на базе NVIDIA Jetson AGX Orin. Распознавание лиц, голосовые протоколы, видеоаналитика, анализ снимков. Развёртывание силами команды TradeAI — до 1 рабочего дня.</div>
       <div class="pc-specs">
         <div class="ps-item"><span class="ps-key">COMPUTE</span><span class="ps-val">275 TOPS</span></div>
         <div class="ps-item"><span class="ps-key">RAM</span><span class="ps-val">64 GB Unified</span></div>
@@ -258,9 +239,9 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
     <div class="prod-card">
       <div class="pc-tag">PRODUCT_02 · ENV</div>
       <span class="pc-ico">🏠</span>
-      <div class="pc-name" data-i18n="pn2">SmartRoom</div>
-      <div class="pc-tagline" data-i18n="pt2">Умное пространство</div>
-      <div class="pc-desc" data-i18n="pd2">Комплект умного медицинского кабинета. Датчики присутствия, климат, освещение, камеры над рабочим местом. Интеграция с Home Assistant и AI-агентом. Для стоматологий, процедурных, лабораторий.</div>
+      <div class="pc-name">SmartRoom</div>
+      <div class="pc-tagline">Умное пространство</div>
+      <div class="pc-desc">Комплект умного медицинского кабинета. Датчики присутствия, климат, освещение, камеры над рабочим местом. Интеграция с Home Assistant и AI-агентом. Для стоматологий, процедурных, лабораторий.</div>
       <div class="pc-specs">
         <div class="ps-item"><span class="ps-key">DEVICES</span><span class="ps-val">30-50 на зону</span></div>
         <div class="ps-item"><span class="ps-key">PROTOCOL</span><span class="ps-val">Zigbee + PoE</span></div>
@@ -272,9 +253,9 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
     <div class="prod-card">
       <div class="pc-tag">PRODUCT_03 · CLINICAL</div>
       <span class="pc-ico">🔬</span>
-      <div class="pc-name" data-i18n="pn3">Clinical Vision</div>
-      <div class="pc-tagline" data-i18n="pt3">AI-анализ снимков</div>
-      <div class="pc-desc" data-i18n="pd3">Нейросетевой анализ рентгеновских снимков и интраоральных фото в реальном времени. Вывод рекомендаций на планшет врача. Поддержка DICOM. Интеграция с любой МИС.</div>
+      <div class="pc-name">Clinical Vision</div>
+      <div class="pc-tagline">AI-анализ снимков</div>
+      <div class="pc-desc">Нейросетевой анализ рентгеновских снимков и интраоральных фото в реальном времени. Вывод рекомендаций на планшет врача. Поддержка DICOM. Интеграция с любой МИС.</div>
       <div class="pc-specs">
         <div class="ps-item"><span class="ps-key">MODELS</span><span class="ps-val">LLaVA + BioViL</span></div>
         <div class="ps-item"><span class="ps-key">FORMAT</span><span class="ps-val">DICOM / JPEG</span></div>
@@ -287,52 +268,52 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 </section>
 
 <section class="who-sec" id="who">
-  <div class="sec-tag" data-i18n="who_tag">// Для кого</div>
-  <h2 class="sec-title" data-i18n="who_title">Наши <span class="ac">клиенты</span></h2>
+  <div class="sec-tag">// Для кого</div>
+  <h2 class="sec-title">Наши <span class="ac">клиенты</span></h2>
   <div class="who-grid">
     <div class="who-card">
       <span class="wh-ico">🦷</span>
-      <div class="wh-title" data-i18n="wh_t1">Стоматологии</div>
-      <div class="wh-desc" data-i18n="wh_d1">Умные клиники с AI-ассистентом, распознаванием пациентов и голосовыми протоколами.</div>
+      <div class="wh-title">Стоматологии</div>
+      <div class="wh-desc">Умные клиники с AI-ассистентом, распознаванием пациентов и голосовыми протоколами.</div>
     </div>
     <div class="who-card">
       <span class="wh-ico">🏥</span>
-      <div class="wh-title" data-i18n="wh_t2">Клиники</div>
-      <div class="wh-desc" data-i18n="wh_d2">Умная среда для процедурных, диагностических кабинетов, операционных.</div>
+      <div class="wh-title">Клиники</div>
+      <div class="wh-desc">Умная среда для процедурных, диагностических кабинетов, операционных.</div>
     </div>
     <div class="who-card">
       <span class="wh-ico">💊</span>
-      <div class="wh-title" data-i18n="wh_t3">Аптеки</div>
-      <div class="wh-desc" data-i18n="wh_d3">Аналитика трафика, умное освещение, интеграция с системами учёта товара.</div>
+      <div class="wh-title">Аптеки</div>
+      <div class="wh-desc">Аналитика трафика, умное освещение, интеграция с системами учёта товара.</div>
     </div>
     <div class="who-card">
       <span class="wh-ico">🔬</span>
-      <div class="wh-title" data-i18n="wh_t4">Лаборатории</div>
-      <div class="wh-desc" data-i18n="wh_d4">Автоматизация рутинных процессов, мониторинг условий хранения образцов.</div>
+      <div class="wh-title">Лаборатории</div>
+      <div class="wh-desc">Автоматизация рутинных процессов, мониторинг условий хранения образцов.</div>
     </div>
   </div>
 </section>
 
 <section class="how-sec" id="how">
-  <div class="sec-tag" data-i18n="how_tag">// Как купить</div>
-  <h2 class="sec-title" data-i18n="how_title">Просто и <span class="ac">быстро</span></h2>
+  <div class="sec-tag">// Как купить</div>
+  <h2 class="sec-title">Просто и <span class="ac">быстро</span></h2>
   <div class="how-grid">
     <div class="how-steps">
       <div class="hs-item">
         <div class="hs-num">01</div>
-        <div><div class="hs-title" data-i18n="ht1">Запрос</div><div class="hs-desc" data-i18n="hd1">Заполняете форму или пишете на trade@labs67.com. Указываете тип учреждения и задачу.</div></div>
+        <div><div class="hs-title">Запрос</div><div class="hs-desc">Заполняете форму или пишете на trade@labs67.com. Указываете тип учреждения и задачу.</div></div>
       </div>
       <div class="hs-item">
         <div class="hs-num">02</div>
-        <div><div class="hs-title" data-i18n="ht2">Консультация</div><div class="hs-desc" data-i18n="hd2">Наш специалист связывается в течение 24 часов. Обсуждаем конфигурацию под ваши задачи.</div></div>
+        <div><div class="hs-title">Консультация</div><div class="hs-desc">Наш специалист связывается в течение 24 часов. Обсуждаем конфигурацию под ваши задачи.</div></div>
       </div>
       <div class="hs-item">
         <div class="hs-num">03</div>
-        <div><div class="hs-title" data-i18n="ht3">Коммерческое</div><div class="hs-desc" data-i18n="hd3">Высылаем детальное предложение с техническими характеристиками и стоимостью.</div></div>
+        <div><div class="hs-title">Коммерческое</div><div class="hs-desc">Высылаем детальное предложение с техническими характеристиками и стоимостью.</div></div>
       </div>
       <div class="hs-item">
         <div class="hs-num">04</div>
-        <div><div class="hs-title" data-i18n="ht4">Развёртывание</div><div class="hs-desc" data-i18n="hd4">Команда TradeAI устанавливает и настраивает систему на месте. Обучение персонала включено.</div></div>
+        <div><div class="hs-title">Развёртывание</div><div class="hs-desc">Команда TradeAI устанавливает и настраивает систему на месте. Обучение персонала включено.</div></div>
       </div>
     </div>
     <div class="how-right">
@@ -348,8 +329,8 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
 </section>
 
 <section class="contact-sec" id="contact">
-  <div class="sec-tag" data-i18n="contact_tag">// Запрос</div>
-  <h2 class="sec-title" data-i18n="contact_title">Получите <span class="ac">каталог</span></h2>
+  <div class="sec-tag">// Запрос</div>
+  <h2 class="sec-title">Получите <span class="ac">каталог</span></h2>
   <div class="contact-grid">
     <div>
       <p class="sec-lead" style="margin-bottom:24px;">Оставьте заявку — пришлём полный каталог с техническими спецификациями и ценами.</p>
@@ -358,7 +339,7 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
       <div class="cinfo"><div class="ci-icon">🌐</div><div><span class="ci-lbl">Концерн</span><span class="ci-val">labs67.com</span></div></div>
     </div>
     <div class="cform">
-      <div class="cf-hdr"><span class="cf-t" data-i18n="form_title">// ЗАПРОС КАТАЛОГА</span><span class="cf-id" id="fid">TRQ_XXXXX</span></div>
+      <div class="cf-hdr"><span class="cf-t">// ЗАПРОС КАТАЛОГА</span><span class="cf-id" id="fid">TRQ_XXXXX</span></div>
       <div class="fr">
         <div class="fg"><label class="fl">Имя</label><input type="text" class="fi" placeholder="Ваше имя"></div>
         <div class="fg"><label class="fl">Телефон</label><input type="tel" class="fi" placeholder="+48 571 719 800"></div>
@@ -429,239 +410,59 @@ function tSubmit(){const b=document.querySelector('.fsub');b.textContent='// О�
 <script>
 // ── I18N ──
 const i18n = {
-  by:{
-    title:'TradeAI — МедТэх рашэнні · LABS67',
-    nav_cta:'Атрымаць каталог',
-    hero_tag:'// TradeAI · Канцэрн LABS67',
-    hero_h1:'МедТэх<br><span class="ac">рашэнні</span>',
-    hero_sub:'Тэхналагічныя распрацоўкі канцэрна LABS67 на адкрытым рынку. Гатовыя да разгортвання сістэмы для клінік, аптэк і медыцынскіх прастораў.',
-    btn1:'// Паглядзець рашэнні',btn2:'Атрымаць каталог →',
-    prod_tag:'// Прадукты',prod_title:'Тры <span class="ac">флагманы</span>',
-    who_tag:'// Для каго',who_title:'Нашы <span class="ac">кліенты</span>',
-    how_tag:'// Як купіць',how_title:'Проста і <span class="ac">хутка</span>',
-    contact_tag:'// Запыт',contact_title:'Атрымайце <span class="ac">каталог</span>',
-    form_title:'// ЗАПЫТ КАТАЛОГА',
-    pn1:'AI Core Kit',
-    pn2:'SmartRoom',
-    pn3:'Clinical Vision',
-    pt1:'Інтэлект для клінікі',
-    pt2:'Разумная прастора',
-    pt3:'ІІ-аналіз здымкаў',
-    pd1:'Поўны ІІ-стэк на NVIDIA Jetson. Распазнаванне твараў, галасавыя пратаколы, відэааналітыка.',
-    pd2:'Камплект разумнага медыцынскага кабінета. Датчыкі, клімат, асвятленне, камеры.',
-    pd3:'Нейрасеткавы аналіз рэнтгенаўскіх здымкаў у рэальным часе.',
-    wh_t1:'Стаматалогіі',
-    wh_t2:'Клінікі',
-    wh_t3:'Аптэкі',
-    wh_t4:'Лабараторыі',
-    wh_d1:'Разумныя клінікі з ІІ-асістэнтам, распазнаваннем пацыентаў.',
-    wh_d2:'Разумнае асяроддзе для кабінетаў.',
-    wh_d3:'Аналітыка трафіку, разумнае асвятленне.',
-    wh_d4:'Аўтаматызацыя рутынных працэсаў.',
-    ht1:'Запыт',
-    ht2:'Кансультацыя',
-    ht3:'Камерцыйная прапанова',
-    ht4:'Разгортванне',
-    hd1:'Запаўняеце форму або пішаце на trade@labs67.com.',
-    hd2:'Наш спецыяліст звязваецца на працягу 24 гадзін.',
-    hd3:'Высылаем дэталёвую прапанову.',
-    hd4:'Каманда TradeAI ўсталёўвае і настройвае сістэму.',
-    lead1:'Пакіньце заяўку — прышлём поўны каталог з тэхнічнымі характарыстыкамі.',
+  by: {
+    title: 'TradeAI — Тэхналогіі для медыцыны · LABS67',
+    nav_cta: 'Атрымаць каталог',
+    hero_tag: '// МедТэх · ІІ · Рашэнні',
+    hero_h1_1: 'Тэхналогіі',
+    hero_h1_2: 'для медыцыны',
+    hero_sub: 'Разработкі канцэрна LABS67 — даступныя рынку. Гатовыя ІІ-рашэнні для клінік, аптэк і лабараторый.',
+    back: '← LABS67',
   },
-  ua:{
-    title:'TradeAI — МедТех рішення · LABS67',
-    nav_cta:'Отримати каталог',
-    hero_tag:'// TradeAI · Концерн LABS67',
-    hero_h1:'МедТех<br><span class="ac">рішення</span>',
-    hero_sub:'Технологічні розробки концерну LABS67 на відкритому ринку. Готові до розгортання системи для клінік, аптек і медичних просторів.',
-    btn1:'// Переглянути рішення',btn2:'Отримати каталог →',
-    prod_tag:'// Продукти',prod_title:'Три <span class="ac">флагмани</span>',
-    who_tag:'// Для кого',who_title:'Наші <span class="ac">клієнти</span>',
-    how_tag:'// Як придбати',how_title:'Просто і <span class="ac">швидко</span>',
-    contact_tag:'// Запит',contact_title:'Отримайте <span class="ac">каталог</span>',
-    form_title:'// ЗАПИТ КАТАЛОГУ',
-    pn1:'AI Core Kit',
-    pn2:'SmartRoom',
-    pn3:'Clinical Vision',
-    pt1:'Інтелект для клініки',
-    pt2:'Розумний простір',
-    pt3:'ШІ-аналіз знімків',
-    pd1:'Повний ШІ-стек на NVIDIA Jetson. Розпізнавання облич, голосові протоколи, відеоаналітика.',
-    pd2:'Комплект розумного медичного кабінету. Датчики, клімат, освітлення, камери.',
-    pd3:'Нейромережевий аналіз рентгенівських знімків у реальному часі.',
-    wh_t1:'Стоматології',
-    wh_t2:'Клініки',
-    wh_t3:'Аптеки',
-    wh_t4:'Лабораторії',
-    wh_d1:'Розумні клініки з ШІ-асистентом.',
-    wh_d2:'Розумне середовище для кабінетів.',
-    wh_d3:'Аналітика трафіку, розумне освітлення.',
-    wh_d4:'Автоматизація рутинних процесів.',
-    ht1:'Запит',
-    ht2:'Консультація',
-    ht3:'Комерційна пропозиція',
-    ht4:'Розгортання',
-    hd1:'Заповніть форму або напишіть на trade@labs67.com.',
-    hd2:'Наш фахівець зв\'язується протягом 24 годин.',
-    hd3:'Надсилаємо детальну пропозицію.',
-    hd4:'Команда TradeAI встановлює та налаштовує систему на місці.',
-    lead1:'Залиште заявку — надішлемо повний каталог з технічними характеристиками.',
+  ua: {
+    title: 'TradeAI — Технології для медицини · LABS67',
+    nav_cta: 'Отримати каталог',
+    hero_tag: '// МедТех · ШІ · Рішення',
+    hero_h1_1: 'Технології',
+    hero_h1_2: 'для медицини',
+    hero_sub: 'Розробки концерну LABS67 — доступні ринку. Готові ШІ-рішення для клінік, аптек і лабораторій.',
+    back: '← LABS67',
   },
-  en:{
-    title:'TradeAI — MedTech Solutions · LABS67',
-    nav_cta:'Get catalogue',
-    hero_tag:'// TradeAI · LABS67 Concern',
-    hero_h1:'MedTech<br><span class="ac">solutions</span>',
-    hero_sub:'LABS67 concern's technological developments on the open market. Ready-to-deploy systems for clinics, pharmacies and medical spaces of any scale.',
-    btn1:'// View solutions',btn2:'Get catalogue →',
-    prod_tag:'// Products',prod_title:'Three <span class="ac">flagships</span>',
-    who_tag:'// Who it's for',who_title:'Our <span class="ac">clients</span>',
-    how_tag:'// How to buy',how_title:'Simple and <span class="ac">fast</span>',
-    contact_tag:'// Request',contact_title:'Get the <span class="ac">catalogue</span>',
-    form_title:'// CATALOGUE REQUEST',
-    pn1:'AI Core Kit',
-    pn2:'SmartRoom',
-    pn3:'Clinical Vision',
-    pt1:'Intelligence for the clinic',
-    pt2:'Smart space',
-    pt3:'AI image analysis',
-    pd1:'Full AI stack on NVIDIA Jetson. Face recognition, voice protocols, video analytics.',
-    pd2:'Smart medical room kit. Presence sensors, climate, lighting, cameras.',
-    pd3:'Neural network analysis of X-rays and intraoral photos in real time.',
-    wh_t1:'Dental clinics',
-    wh_t2:'Clinics',
-    wh_t3:'Pharmacies',
-    wh_t4:'Laboratories',
-    wh_d1:'Smart clinics with AI assistant, patient recognition.',
-    wh_d2:'Smart environment for treatment rooms.',
-    wh_d3:'Traffic analytics, smart lighting.',
-    wh_d4:'Automation of routine processes.',
-    ht1:'Request',
-    ht2:'Consultation',
-    ht3:'Commercial proposal',
-    ht4:'Deployment',
-    hd1:'Fill in the form or write to trade@labs67.com.',
-    hd2:'Our specialist contacts you within 24 hours.',
-    hd3:'We send a detailed proposal.',
-    hd4:'TradeAI team installs and configures the system on site.',
-    lead1:'Leave a request — we\'ll send the full catalogue with technical specifications.',
+  en: {
+    title: 'TradeAI — Technologies for Medicine · LABS67',
+    nav_cta: 'Get catalogue',
+    hero_tag: '// MedTech · AI · Solutions',
+    hero_h1_1: 'Technologies',
+    hero_h1_2: 'for Medicine',
+    hero_sub: 'LABS67 concern developments — available to the market. Ready AI solutions for clinics, pharmacies and laboratories.',
+    back: '← LABS67',
   },
-  pl:{
-    title:'TradeAI — Rozwiązania MedTech · LABS67',
-    nav_cta:'Pobierz katalog',
-    hero_tag:'// TradeAI · Koncern LABS67',
-    hero_h1:'Rozwiązania<br><span class="ac">MedTech</span>',
-    hero_sub:'Opracowania technologiczne koncernu LABS67 na otwartym rynku. Systemy gotowe do wdrożenia dla klinik, aptek i przestrzeni medycznych.',
-    btn1:'// Zobacz rozwiązania',btn2:'Pobierz katalog →',
-    prod_tag:'// Produkty',prod_title:'Trzy <span class="ac">flagowce</span>',
-    who_tag:'// Dla kogo',who_title:'Nasi <span class="ac">klienci</span>',
-    how_tag:'// Jak kupić',how_title:'Prosto i <span class="ac">szybko</span>',
-    contact_tag:'// Zapytanie',contact_title:'Pobierz <span class="ac">katalog</span>',
-    form_title:'// ZAPYTANIE O KATALOG',
-    pn1:'AI Core Kit',
-    pn2:'SmartRoom',
-    pn3:'Clinical Vision',
-    pt1:'Inteligencja dla kliniki',
-    pt2:'Inteligentna przestrzeń',
-    pt3:'Analiza obrazów AI',
-    pd1:'Pełny stos AI na NVIDIA Jetson. Rozpoznawanie twarzy, protokoły głosowe, wideoanalityka.',
-    pd2:'Zestaw inteligentnego gabinetu medycznego. Czujniki, klimat, oświetlenie, kamery.',
-    pd3:'Neuronowa analiza zdjęć rentgenowskich w czasie rzeczywistym.',
-    wh_t1:'Stomatologie',
-    wh_t2:'Kliniki',
-    wh_t3:'Apteki',
-    wh_t4:'Laboratoria',
-    wh_d1:'Inteligentne kliniki z asystentem AI.',
-    wh_d2:'Inteligentne środowisko dla gabinetów.',
-    wh_d3:'Analityka ruchu, inteligentne oświetlenie.',
-    wh_d4:'Automatyzacja rutynowych procesów.',
-    ht1:'Zapytanie',
-    ht2:'Konsultacja',
-    ht3:'Oferta handlowa',
-    ht4:'Wdrożenie',
-    hd1:'Wypełnij formularz lub napisz na trade@labs67.com.',
-    hd2:'Nasz specjalista kontaktuje się w ciągu 24 godzin.',
-    hd3:'Wysyłamy szczegółową ofertę.',
-    hd4:'Zespół TradeAI instaluje i konfiguruje system na miejscu.',
-    lead1:'Zostaw zapytanie — wyślemy pełny katalog ze specyfikacjami technicznymi.',
+  pl: {
+    title: 'TradeAI — Technologie dla Medycyny · LABS67',
+    nav_cta: 'Pobierz katalog',
+    hero_tag: '// MedTech · AI · Rozwiązania',
+    hero_h1_1: 'Technologie',
+    hero_h1_2: 'dla Medycyny',
+    hero_sub: 'Rozwiązania koncernu LABS67 — dostępne na rynku. Gotowe systemy AI dla klinik, aptek i laboratoriów.',
+    back: '← LABS67',
   },
-  fr:{
-    title:'TradeAI — Solutions MedTech · LABS67',
-    nav_cta:'Obtenir le catalogue',
-    hero_tag:'// TradeAI · Groupe LABS67',
-    hero_h1:'Solutions<br><span class="ac">MedTech</span>',
-    hero_sub:'Développements technologiques du groupe LABS67 sur le marché ouvert. Systèmes prêts à déployer pour cliniques, pharmacies et espaces médicaux.',
-    btn1:'// Voir les solutions',btn2:'Obtenir le catalogue →',
-    prod_tag:'// Produits',prod_title:'Trois <span class="ac">phares</span>',
-    who_tag:'// Pour qui',who_title:'Nos <span class="ac">clients</span>',
-    how_tag:'// Comment acheter',how_title:'Simple et <span class="ac">rapide</span>',
-    contact_tag:'// Demande',contact_title:'Obtenez le <span class="ac">catalogue</span>',
-    form_title:'// DEMANDE DE CATALOGUE',
-    pn1:'AI Core Kit',
-    pn2:'SmartRoom',
-    pn3:'Clinical Vision',
-    pt1:'Intelligence pour la clinique',
-    pt2:'Espace intelligent',
-    pt3:'Analyse d\'images IA',
-    pd1:'Stack IA complet sur NVIDIA Jetson. Reconnaissance faciale, protocoles vocaux, vidéoanalyse.',
-    pd2:'Kit de salle médicale intelligente. Capteurs, climat, éclairage, caméras.',
-    pd3:'Analyse neuronale des radiographies en temps réel.',
-    wh_t1:'Cabinets dentaires',
-    wh_t2:'Cliniques',
-    wh_t3:'Pharmacies',
-    wh_t4:'Laboratoires',
-    wh_d1:'Cliniques intelligentes avec assistant IA.',
-    wh_d2:'Environnement intelligent pour salles de soins.',
-    wh_d3:'Analytique de trafic, éclairage intelligent.',
-    wh_d4:'Automatisation des processus routiniers.',
-    ht1:'Demande',
-    ht2:'Consultation',
-    ht3:'Proposition commerciale',
-    ht4:'Déploiement',
-    hd1:'Remplissez le formulaire ou écrivez à trade@labs67.com.',
-    hd2:'Notre spécialiste vous contacte sous 24 heures.',
-    hd3:'Nous envoyons une proposition détaillée.',
-    hd4:'L\'équipe TradeAI installe et configure le système sur place.',
-    lead1:'Laissez une demande — nous enverrons le catalogue complet avec les spécifications techniques.',
+  fr: {
+    title: 'TradeAI — Technologies pour la Médecine · LABS67',
+    nav_cta: 'Obtenir le catalogue',
+    hero_tag: '// MedTech · IA · Solutions',
+    hero_h1_1: 'Technologies',
+    hero_h1_2: 'pour la Médecine',
+    hero_sub: 'Les développements du groupe LABS67 — disponibles sur le marché. Solutions IA prêtes pour cliniques, pharmacies et laboratoires.',
+    back: '← LABS67',
   },
-  de:{
-    title:'TradeAI — MedTech-Lösungen · LABS67',
-    nav_cta:'Katalog anfordern',
-    hero_tag:'// TradeAI · LABS67 Konzern',
-    hero_h1:'MedTech-<br><span class="ac">Lösungen</span>',
-    hero_sub:'Technologische Entwicklungen des LABS67-Konzerns auf dem offenen Markt. Einsatzbereite Systeme für Kliniken, Apotheken und medizinische Räume.',
-    btn1:'// Lösungen ansehen',btn2:'Katalog anfordern →',
-    prod_tag:'// Produkte',prod_title:'Drei <span class="ac">Flaggschiffe</span>',
-    who_tag:'// Für wen',who_title:'Unsere <span class="ac">Kunden</span>',
-    how_tag:'// Wie kaufen',how_title:'Einfach und <span class="ac">schnell</span>',
-    contact_tag:'// Anfrage',contact_title:'Katalog <span class="ac">anfordern</span>',
-    form_title:'// KATALOGANFRAGE',
-    pn1:'AI Core Kit',
-    pn2:'SmartRoom',
-    pn3:'Clinical Vision',
-    pt1:'Intelligenz für die Klinik',
-    pt2:'Intelligenter Raum',
-    pt3:'KI-Bildanalyse',
-    pd1:'Vollständiger KI-Stack auf NVIDIA Jetson. Gesichtserkennung, Sprachprotokolle, Videoanalyse.',
-    pd2:'Smart Medical Room Kit. Sensoren, Klima, Beleuchtung, Kameras.',
-    pd3:'Neuronale Analyse von Röntgenaufnahmen in Echtzeit.',
-    wh_t1:'Zahnarztpraxen',
-    wh_t2:'Kliniken',
-    wh_t3:'Apotheken',
-    wh_t4:'Laboratorien',
-    wh_d1:'Intelligente Kliniken mit KI-Assistent.',
-    wh_d2:'Intelligente Umgebung für Behandlungsräume.',
-    wh_d3:'Traffic-Analytik, intelligente Beleuchtung.',
-    wh_d4:'Automatisierung von Routineprozessen.',
-    ht1:'Anfrage',
-    ht2:'Beratung',
-    ht3:'Kommerzielles Angebot',
-    ht4:'Deployment',
-    hd1:'Füllen Sie das Formular aus oder schreiben Sie an trade@labs67.com.',
-    hd2:'Unser Spezialist meldet sich innerhalb von 24 Stunden.',
-    hd3:'Wir senden ein detailliertes Angebot.',
-    hd4:'Das TradeAI-Team installiert und konfiguriert das System vor Ort.',
-    lead1:'Hinterlassen Sie eine Anfrage — wir senden den vollständigen Katalog mit technischen Spezifikationen.',
+  de: {
+    title: 'TradeAI — Technologien für die Medizin · LABS67',
+    nav_cta: 'Katalog anfordern',
+    hero_tag: '// MedTech · KI · Lösungen',
+    hero_h1_1: 'Technologien',
+    hero_h1_2: 'für die Medizin',
+    hero_sub: 'LABS67-Konzernentwicklungen — auf dem Markt verfügbar. Einsatzbereite KI-Lösungen für Kliniken, Apotheken und Labore.',
+    back: '← LABS67',
   },
 };
 let currentLang = localStorage.getItem('labs67_lang_trade') || 'by';
@@ -675,16 +476,11 @@ function setLang(lang) {
     const key = el.getAttribute('data-i18n');
     if (i18n[lang] && i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
   });
-  document.querySelectorAll('#langSwitcher>.lang-btn').forEach(b=>b.classList.remove('active'));
-  const _order=['by','ua','en','pl','fr','de'];
-  const _btns=document.querySelectorAll('#langSwitcher>.lang-btn');
-  const _idx=_order.indexOf(lang);
-  if(_btns[_idx])_btns[_idx].classList.add('active');
-  const _f=document.getElementById('langActiveFlagMob');
-  const _c=document.getElementById('langActiveCodeMob');
-  if(_f&&LANG_FLAGS_SUB[lang])_f.innerHTML=LANG_FLAGS_SUB[lang];
-  if(_c)_c.textContent=lang.toUpperCase();
-  if(i18n[lang]&&i18n[lang].title)document.title=i18n[lang].title;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  const order = ['by','ua','en','pl','fr','de'];
+  const btns = document.querySelectorAll('.lang-btn');
+  const idx = order.indexOf(lang);
+  if (btns[idx]) btns[idx].classList.add('active');
 }
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 </script>
