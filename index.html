@@ -424,8 +424,8 @@ function sm(t){document.getElementById('co').innerHTML='';am(t,false);setTimeout
 function sc(){const i=document.getElementById('ci');const v=i.value.trim();if(!v)return;i.value='';document.getElementById('co').innerHTML='';sm(v);}
 function tSubmit(){const b=document.querySelector('.fsub');b.textContent='// ОБРАБОТКА...';b.style.background='rgba(48,220,255,0.3)';b.style.color='var(--cyan)';setTimeout(()=>{b.textContent='// ЗАПРОС ПРИНЯТ ✓';b.style.background='var(--green)';b.style.color='#030810';document.getElementById('fid').textContent='TRQ_'+Math.random().toString(36).substr(2,6).toUpperCase();setTimeout(()=>{b.textContent='// ЗАПРОСИТЬ КАТАЛОГ →';b.style.background='';b.style.color='';},3000);},1400);}
 </script>
-</body>
-</html>
+
+
 <script>
 // ── I18N ──
 const i18n = {
@@ -688,3 +688,5 @@ function setLang(lang) {
 }
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 </script>
+</body>
+</html>
