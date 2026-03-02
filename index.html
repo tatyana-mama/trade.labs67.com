@@ -201,15 +201,16 @@ footer{padding:34px 44px;border-top:1px solid var(--b1);display:grid;grid-templa
     <a href="//labs67.com" class="back-link">← LABS67</a>
     
     <div class="lang-switcher" id="langSwitcher">
+      <!-- Desktop -->
       <button class="lang-btn active" onclick="setLang('by')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/><text x="9" y="9.5" text-anchor="middle" font-size="5" fill="white" font-family="serif">⚔</text></svg><span class="lang-code">BY</span></button>
       <button class="lang-btn" onclick="setLang('ua')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#005BBB"/><rect y="6" width="18" height="6" fill="#FFD500"/></svg><span class="lang-code">UA</span></button>
-      <button class="lang-btn" onclick="setLang('en')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="12" fill="#012169"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#fff" stroke-width="2"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#C8102E" stroke-width="1"/><rect x="7" width="4" height="12" fill="#fff"/><rect y="4" width="18" height="4" fill="#fff"/><rect x="8" width="2" height="12" fill="#C8102E"/><rect y="5" width="18" height="2" fill="#C8102E"/></svg><span class="lang-code">EN</span></button>
+      <button class="lang-btn" onclick="setLang('en')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="12" fill="#012169"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#fff" stroke-width="2"/><rect x="7" width="4" height="12" fill="#fff"/><rect y="4" width="18" height="4" fill="#fff"/><rect x="8" width="2" height="12" fill="#C8102E"/><rect y="5" width="18" height="2" fill="#C8102E"/></svg><span class="lang-code">EN</span></button>
       <button class="lang-btn" onclick="setLang('pl')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="6" fill="#fff"/><rect y="6" width="18" height="6" fill="#DC143C"/></svg><span class="lang-code">PL</span></button>
       <button class="lang-btn" onclick="setLang('fr')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="6" height="12" fill="#002395"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#ED2939"/></svg><span class="lang-code">FR</span></button>
       <button class="lang-btn" onclick="setLang('de')"><svg class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#DD0000"/><rect y="8" width="18" height="4" fill="#FFCE00"/></svg><span class="lang-code">DE</span></button>
-          <!-- Мобильный -->
-      <button class="lang-dropdown-btn" onclick="toggleLangMenu()">
-        <svg class="lang-flag" id="langActiveFlagMob" viewBox="0 0 18 12"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/></svg>
+      <!-- Mobile -->
+      <button class="lang-dropdown-btn" id="langDropBtn" onclick="toggleLangMenu()">
+        <svg id="langActiveFlagMob" class="lang-flag" viewBox="0 0 18 12"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/></svg>
         <span id="langActiveCodeMob">BY</span> ▾
       </button>
       <div class="lang-dropdown-menu" id="langDropMenu">
@@ -664,6 +665,14 @@ const i18n = {
     lead1:'Hinterlassen Sie eine Anfrage — wir senden den vollständigen Katalog mit technischen Spezifikationen.',
   },
 };
+const LANG_FLAGS = {
+  by:`<rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#CF101A"/><rect y="8" width="18" height="4" fill="#fff"/>`,
+  ua:`<rect width="18" height="6" fill="#005BBB"/><rect y="6" width="18" height="6" fill="#FFD500"/>`,
+  en:`<rect width="18" height="12" fill="#012169"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#fff" stroke-width="2"/><rect x="7" width="4" height="12" fill="#fff"/><rect y="4" width="18" height="4" fill="#fff"/><rect x="8" width="2" height="12" fill="#C8102E"/><rect y="5" width="18" height="2" fill="#C8102E"/>`,
+  pl:`<rect width="18" height="6" fill="#fff"/><rect y="6" width="18" height="6" fill="#DC143C"/>`,
+  fr:`<rect width="6" height="12" fill="#002395"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#ED2939"/>`,
+  de:`<rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#DD0000"/><rect y="8" width="18" height="4" fill="#FFCE00"/>`
+};
 let currentLang = localStorage.getItem('labs67_lang_trade') || 'by';
 
 function setLang(lang) {
@@ -671,21 +680,37 @@ function setLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
   localStorage.setItem('labs67_lang_trade', lang);
+  if (i18n[lang] && i18n[lang].title) document.title = i18n[lang].title;
+
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (i18n[lang] && i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+    if (i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
   });
-  document.querySelectorAll('#langSwitcher>.lang-btn').forEach(b=>b.classList.remove('active'));
-  const _order=['by','ua','en','pl','fr','de'];
-  const _btns=document.querySelectorAll('#langSwitcher>.lang-btn');
-  const _idx=_order.indexOf(lang);
-  if(_btns[_idx])_btns[_idx].classList.add('active');
-  const _f=document.getElementById('langActiveFlagMob');
-  const _c=document.getElementById('langActiveCodeMob');
-  if(_f&&LANG_FLAGS_SUB[lang])_f.innerHTML=LANG_FLAGS_SUB[lang];
-  if(_c)_c.textContent=lang.toUpperCase();
-  if(i18n[lang]&&i18n[lang].title)document.title=i18n[lang].title;
+
+  // Desktop active state
+  const langOrder = ['by','ua','en','pl','fr','de'];
+  const idx = langOrder.indexOf(lang);
+  document.querySelectorAll('#langSwitcher>.lang-btn').forEach(b => b.classList.remove('active'));
+  const desktopBtns = document.querySelectorAll('#langSwitcher>.lang-btn');
+  if (desktopBtns[idx]) desktopBtns[idx].classList.add('active');
+
+  // Mobile flag update
+  const flagMob = document.getElementById('langActiveFlagMob');
+  const codeMob = document.getElementById('langActiveCodeMob');
+  if (flagMob && LANG_FLAGS[lang]) flagMob.innerHTML = LANG_FLAGS[lang];
+  if (codeMob) codeMob.textContent = lang.toUpperCase();
 }
+
+function toggleLangMenu() {
+  document.getElementById('langDropMenu').classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const sw = document.getElementById('langSwitcher');
+  if (sw && !sw.contains(e.target)) {
+    const m = document.getElementById('langDropMenu');
+    if (m) m.classList.remove('open');
+  }
+});
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 </script>
 </body>
