@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="be"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title data-i18n="title">MREZA.AI — Тэхналогіі для медыцыны · LABS67</title><meta name="description" content="MREZA.AI — технологические разработки концерна LABS67 для клиник, аптек и медицинских пространств."><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"><style>
+<!DOCTYPE html><html lang="be"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title data-i18n="title">MREZA.AI — Тэхналогіі для медыцыны · LABS67</title><meta name="description" content="MREZA.AI — технологические разработки концерна LABS67 для клиник, аптек и медицинских пространств."><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"><style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --cyan: #0891B2; --cyan-dark: #0E7490; --cyan-light: #30dcff;
@@ -204,7 +204,7 @@
   .back-to-top.visible { opacity: 1; pointer-events: auto; }
 
   /* RESPONSIVE */
-  @media(max-width:900px) {
+  .pulse-nav-mobile-hide{} @media(max-width:900px) {
     nav { padding: 16px 20px; }
     .nav-center, .nav-back { display: none; }
     .nav-hamburger { display: flex; }
@@ -231,6 +231,23 @@
     .hero-desc { letter-spacing: 2px; }
     .mobile-lang-btn { padding: 8px 10px; min-height: 40px; }
   }
+
+  /* PULSE NAVIGATOR */
+  .pulse-nav { position:fixed;top:48px;right:0;width:48px;height:calc(100vh - 48px);background:rgba(255,255,255,0.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(0,0,0,0.04);z-index:90;display:flex;flex-direction:column;align-items:center;padding:20px 0;gap:16px;transition:width 0.3s ease }
+  .pulse-nav:hover { width:180px }
+  .pulse-nav:hover .pn-label { opacity:1;max-width:120px }
+  .pn-item { display:flex;align-items:center;gap:10px;width:100%;padding:8px 12px;text-decoration:none;transition:all 0.2s }
+  .pn-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0 }
+  .pn-dot.active { box-shadow:0 0 8px currentColor }
+  .pn-label { font-size:10px;color:var(--muted,#888);white-space:nowrap;overflow:hidden;max-width:0;opacity:0;transition:all 0.3s }
+  .pn-pulse { width:2px;height:40px;background:linear-gradient(to bottom,transparent,#0891B2,transparent);margin:auto 0;animation:pulseLine 2s ease-in-out infinite;opacity:0.4 }
+  @keyframes pulseLine { 0%,100%{opacity:0.2} 50%{opacity:0.7} }
+  .pn-action { width:32px;height:32px;border-radius:50%;border:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted,#888);cursor:pointer;transition:all 0.2s;background:white;text-decoration:none }
+  .pn-action:hover { border-color:#0891B2;color:#0891B2 }
+  .nav-ver { font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted,#888);opacity:0.5;letter-spacing:0.04em;white-space:nowrap }
+
+
+  @media(max-width:900px){ .pulse-nav{display:none} .nav-ver{display:none} }
 </style></head><body>
 
 <!-- NAV -->
@@ -258,7 +275,7 @@
     <a href="#contact" class="nav-cta" data-i18n="nav_cta">Атрымаць каталог</a>
   </div>
   <button class="nav-hamburger" id="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
-</nav>
+<span class="nav-ver">v2.0 · 25.03.26</span></nav>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
@@ -424,6 +441,18 @@
 </section>
 
 <!-- FOOTER -->
+
+<!-- PULSE NAVIGATOR -->
+<aside class="pulse-nav" id="pulseNav">
+  <a class="pn-item" href="https://labs67.com" target="_blank"><span class="pn-dot" style="background:#B8860B"></span><span class="pn-label">labs67</span></a>
+  <a class="pn-item" href="https://svyatlitsa.com" target="_blank"><span class="pn-dot" style="background:#C49A2D"></span><span class="pn-label">svyatlitsa</span></a>
+  <a class="pn-item" href="https://scyra.labs67.com" target="_blank"><span class="pn-dot" style="background:#7F77DD"></span><span class="pn-label">scyra.ai</span></a>
+  <a class="pn-item" href="https://academi67.com" target="_blank"><span class="pn-dot" style="background:#2B7ACC"></span><span class="pn-label">slyah.ai</span></a>
+  <a class="pn-item" href="https://trade.labs67.com" target="_blank"><span class="pn-dot active" style="background:#0891B2;color:#0891B2"></span><span class="pn-label">mreza.ai</span></a>
+  <a class="pn-item" href="https://franchise.labs67.com" target="_blank"><span class="pn-dot" style="background:#BA7517"></span><span class="pn-label">ladza.ai</span></a>
+  <div class="pn-pulse"></div>
+  <button class="pn-action" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Top">↑</button>
+</aside>
 <footer>
   <div class="footer-top">
     <div>
