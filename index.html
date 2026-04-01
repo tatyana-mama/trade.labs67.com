@@ -35,12 +35,12 @@
   .lang-current { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; padding: 4px 10px; border: 1px solid var(--gray2); border-radius: 3px; background: transparent; color: var(--muted); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
   .lang-current:hover { color: var(--cyan); border-color: var(--cyan); }
   .lang-arrow { font-size: 7px; transition: transform 0.2s; margin-left: 2px; }
-  .lang-switcher.open .lang-arrow { transform: rotate(180deg); }
+  .lang-switcher.open .lang-arrow, .labs67-lang.open .lang-arrow { transform: rotate(180deg); }
   .lang-dropdown { position: absolute; top: calc(100% + 6px); right: 0; background: var(--white); border: 1px solid var(--gray2); border-radius: 6px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); min-width: 140px; max-height: 300px; overflow-y: auto; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: all 0.25s ease; z-index: 200; }
-  .lang-switcher.open .lang-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
-  .lang-option { display: block; width: 100%; padding: 8px 14px; border: none; background: none; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; color: var(--muted); cursor: pointer; text-align: left; transition: all 0.15s; }
-  .lang-option:hover { background: var(--warm); color: var(--cyan); }
-  .lang-option.active { color: var(--cyan); font-weight: 500; }
+  .lang-switcher.open .lang-dropdown, .labs67-lang.open .lang-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .lang-opt { display: block; width: 100%; padding: 8px 14px; border: none; background: none; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; color: var(--muted); cursor: pointer; text-align: left; transition: all 0.15s; }
+  .lang-opt:hover { background: var(--warm); color: var(--cyan); }
+  .lang-opt.active { color: var(--cyan); font-weight: 500; }
 
   /* HAMBURGER */
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 12px; background: none; border: none; z-index: 200; -webkit-tap-highlight-color: transparent; min-width: 48px; min-height: 48px; align-items: center; justify-content: center; }
