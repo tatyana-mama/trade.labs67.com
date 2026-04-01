@@ -203,35 +203,59 @@
 
   /* RESPONSIVE */
   @media(max-width:900px) {
-    nav { padding: 16px 20px; }
-    .nav-center, .nav-back { display: none; }
+    nav { padding: 12px 16px; }
+    .nav-center, .nav-back, .nav-ver { display: none; }
     .nav-hamburger { display: flex; }
-    .hero { padding: 100px 24px 60px; }
-    .hero-title { letter-spacing: 4px; }
-    .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
-    .section { padding: 80px 24px; max-width: none; }
-    .section-alt { padding: 80px 24px; }
-    .pulse-nav { right: 8px; width: 44px; }
-    .features-grid { grid-template-columns: 1fr; }
-    .who-grid { grid-template-columns: 1fr 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .nav-logo-name { font-size: 18px; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-title { letter-spacing: 2px; font-size: clamp(40px, 12vw, 80px); }
+    .hero-sub { font-size: 9px; letter-spacing: 4px; }
+    .hero-meaning { font-size: 10px; letter-spacing: 2px; }
+    .hero-desc { font-size: 13px; letter-spacing: 0.5px; line-height: 1.7; padding: 0 8px; }
+    .hero-actions { flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+    .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; padding: 14px 24px; font-size: 12px; }
+    .section { padding: 64px 20px; max-width: none; }
+    .section-alt { padding: 64px 20px; }
+    .section-title { font-size: clamp(28px, 7vw, 40px); margin-bottom: 40px; word-break: break-word; }
+    .section-label { font-size: 9px; letter-spacing: 4px; }
+    .features-grid { grid-template-columns: 1fr; gap: 16px; }
+    .feature { padding: 32px 24px; }
+    .feature-title { font-size: 18px; }
+    .feature-text { font-size: 12px; }
+    .who-grid { grid-template-columns: 1fr; gap: 16px; }
+    .who-card { padding: 28px 24px; }
+    .who-title { font-size: 17px; }
+    .process-steps { grid-template-columns: 1fr; gap: 28px; }
     .step::before { display: none; }
+    .step-title { font-size: 17px; }
+    .process-aside { padding: 28px 20px; }
+    .process-aside-title { font-size: 20px; }
     .process-grid { grid-template-columns: 1fr; }
-    .booking-grid { grid-template-columns: 1fr; gap: 48px; }
+    .booking-grid { grid-template-columns: 1fr; gap: 40px; }
+    .booking-contact-value { font-size: 15px; word-break: break-all; }
     .form-row { grid-template-columns: 1fr; gap: 0; }
-    footer { padding: 40px 24px 32px; }
-    .footer-top { flex-direction: column; gap: 32px; }
-    .footer-links { flex-wrap: wrap; gap: 20px; }
-    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-    .footer-brands { gap: 16px; }
+    footer { padding: 40px 20px 28px; }
+    .footer-top { flex-direction: column; gap: 24px; }
+    .footer-logo-name { font-size: 32px; }
+    .footer-links { flex-wrap: wrap; gap: 16px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .footer-brands { gap: 12px; }
+    .footer-brands a { font-size: 9px; }
     .pulse-nav { display: none; }
-    .nav-ver { display: none; }
+    .ticker-item { font-size: 9px; letter-spacing: 2px; }
+    #chat-win { right: 12px; left: 12px; width: auto; bottom: 80px; }
+    #chat-bubble { bottom: 16px; right: 16px; width: 48px; height: 48px; font-size: 20px; }
   }
   @media(max-width:600px) {
-    .who-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr; }
-    .hero-desc { letter-spacing: 2px; }
-    .mobile-lang-btn { padding: 8px 10px; min-height: 40px; }
+    .hero { padding: 90px 16px 48px; }
+    .hero-title { font-size: clamp(36px, 14vw, 64px); }
+    .section { padding: 48px 16px; }
+    .section-alt { padding: 48px 16px; }
+    .section-title { font-size: clamp(24px, 7vw, 32px); }
+    .feature { padding: 24px 20px; }
+    .who-card { padding: 24px 20px; }
+    .mobile-lang-btn { padding: 8px 10px; min-height: 40px; font-size: 9px; }
+    .mobile-menu a { font-size: 22px; padding: 12px 0; }
   }
 
   /* PULSE NAVIGATOR */
