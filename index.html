@@ -240,9 +240,7 @@
     .footer-links { flex-wrap: wrap; gap: 16px; }
     .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     .footer-brands { gap: 12px; }
-    .footer-brands a { font-size: 9px; }
-    .pulse-nav { display: none; }
-    .ticker-item { font-size: 9px; letter-spacing: 2px; }
+    .footer-brands a { font-size: 9px; } .ticker-item { font-size: 9px; letter-spacing: 2px; }
     #chat-win { right: 12px; left: 12px; width: auto; bottom: 80px; }
     #chat-bubble { bottom: 16px; right: 16px; width: 48px; height: 48px; font-size: 20px; }
   }
@@ -258,24 +256,21 @@
     .mobile-menu a { font-size: 22px; padding: 12px 0; }
   }
 
-  /* PULSE NAVIGATOR */
-  .pulse-nav { position:fixed;top:50%;right:16px;transform:translateY(-50%);width:56px;z-index:90;display:flex;flex-direction:column;align-items:center;gap:0;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:28px;padding:16px 0;border:1px solid rgba(0,194,168,0.1) }
-  .pulse-nav:hover { width:200px;border-radius:16px;border-color:rgba(0,194,168,0.25);box-shadow:0 8px 32px rgba(0,0,0,0.3) }
-  .pulse-nav:hover .pn-label { opacity:1;max-width:120px;margin-left:4px }
-  .pulse-nav:hover .pn-ico { width:32px;height:32px }
-  .pn-item { display:flex;align-items:center;gap:8px;width:100%;padding:10px 16px;text-decoration:none;transition:all 0.25s;border-radius:0 }
-  .pn-item:hover { background:rgba(0,194,168,0.1) }
-  .pn-item:hover .pn-label { color:var(--cyan) }
-  .pn-ico { width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:all 0.3s;position:relative }
-  .pn-ico svg { width:16px;height:16px }
-  .pn-ico.active { box-shadow:0 0 12px currentColor,0 0 4px currentColor }
-  .pn-label { font-family:var(--font-mono);font-size:9px;letter-spacing:1px;color:rgba(255,255,255,0.5);white-space:nowrap;overflow:hidden;max-width:0;opacity:0;transition:all 0.35s;font-weight:300;text-transform:uppercase }
-  .pn-divider { width:24px;height:1px;background:rgba(255,255,255,0.06);margin:4px auto }
-  .pn-pulse { width:2px;height:24px;background:linear-gradient(to bottom,transparent,var(--cyan),transparent);margin:6px auto;animation:pulseLine 2.5s ease-in-out infinite;opacity:0.5 }
-  @keyframes pulseLine { 0%,100%{opacity:0.15} 50%{opacity:0.6} }
-  .pn-action { width:32px;height:32px;border:1px solid rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.25s;background:transparent;text-decoration:none;margin:4px auto 0 }
-  .pn-action:hover { border-color:var(--cyan);color:var(--cyan);background:rgba(0,194,168,0.1) }
-  .nav-ver { font-family:var(--font-mono);font-size:8px;color:rgba(255,255,255,0.2);letter-spacing:0.08em;white-space:nowrap;font-weight:300;margin-top:8px }
+  
+/* Side Panel */
+.side-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;gap:0;transition:width .4s cubic-bezier(.16,1,.3,1);width:56px;overflow:hidden}
+.side-panel:hover{width:220px}
+.side-panel:hover .sp-link{padding:14px 20px}
+.side-panel:hover .sp-name{opacity:1;transform:translateX(0)}
+.sp-link{display:flex;align-items:center;gap:14px;padding:14px 20px;text-decoration:none;transition:all .3s;border-left:3px solid transparent;background:rgba(3,8,16,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.sp-link:hover{background:rgba(255,255,255,.06);border-left-color:var(--c)}
+.sp-link.active{border-left-color:var(--c);background:rgba(255,255,255,.04)}
+.sp-link:first-child{border-radius:16px 0 0 0}
+.sp-link:last-child{border-radius:0 0 0 16px}
+.sp-dot{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);flex-shrink:0;transition:transform .2s}
+.sp-link:hover .sp-dot{transform:scale(1.3)}
+.sp-name{font-family:'Space Grotesk','Inter',sans-serif;font-size:15px;font-weight:600;color:#cce8f5;white-space:nowrap;opacity:0;transform:translateX(-8px);transition:all .3s cubic-bezier(.16,1,.3,1);letter-spacing:-.01em}
+@media(max-width:960px){.side-panel{display:none}}
 </style></head><body>
 <script src="lang.js"></script>
 <script src="labs67-i18n.js"></script>
@@ -455,18 +450,7 @@
   </div>
 </section>
 
-<!-- PULSE NAVIGATOR -->
-<aside class="pulse-nav" id="pulseNav">
-  <a class="pn-item" href="https://labs67.com" target="_blank"><span class="pn-ico" style="background:rgba(184,134,11,0.15)"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-7.07-2.93 2.83-2.83m8.48-8.48 2.83-2.83M2 12h4m12 0h4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83"/></svg></span><span class="pn-label">labs67</span></a>
-  <a class="pn-item" href="https://svyatlitsa.com" target="_blank"><span class="pn-ico" style="background:rgba(196,154,45,0.15)"><svg viewBox="0 0 24 24" fill="none" stroke="#C49A2D" stroke-width="2"><path d="M8 2v4m8-4v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M9 16l2 2 4-4"/></svg></span><span class="pn-label">svyatlitsa</span></a>
-  <a class="pn-item" href="https://scyra.labs67.com" target="_blank"><span class="pn-ico" style="background:rgba(127,119,221,0.15)"><svg viewBox="0 0 24 24" fill="none" stroke="#7F77DD" stroke-width="1.5"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M8 12h8"/><circle cx="9" cy="9" r="1.5" fill="#7F77DD"/><circle cx="15" cy="9" r="1.5" fill="#7F77DD"/><path d="M9 9l3 3 3-3"/><path d="M8 15.5c1.2 1 2.5 1.5 4 1.5s2.8-.5 4-1.5"/></svg></span><span class="pn-label">ščyra.ai</span></a>
-  <div class="pn-divider"></div>
-  <a class="pn-item" href="https://academi67.com" target="_blank"><span class="pn-ico" style="background:rgba(43,122,204,0.15)"><svg viewBox="0 0 24 24" fill="none" stroke="#2B7ACC" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span class="pn-label">slyah.ai</span></a>
-  <a class="pn-item" href="https://trade.labs67.com" target="_blank"><span class="pn-ico active" style="background:rgba(0,194,168,0.2);color:var(--cyan)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 5-9"/></svg></span><span class="pn-label">skarby ●</span></a>
-  <a class="pn-item" href="https://franchise.labs67.com" target="_blank"><span class="pn-ico" style="background:rgba(186,117,23,0.15)"><svg viewBox="0 0 24 24" fill="none" stroke="#BA7517" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span class="pn-label">ladza.ai</span></a>
-  <div class="pn-pulse"></div>
-  <button class="pn-action" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Top">&#8593;</button>
-</aside>
+
 
 <!-- FOOTER -->
 <footer>
@@ -597,4 +581,13 @@ function tSubmit(btn) {
 window.onLangChange = function(lang) {
   if (i18n[lang] && i18n[lang].title) document.title = i18n[lang].title;
 };
-</script></body></html>
+</script><!-- Side Panel -->
+<aside class="side-panel">
+  <a href="https://labs67.com" class="sp-link" style="--c:#B8860B"><span class="sp-dot"></span><span class="sp-name">LABS67</span></a>
+  <a href="https://svyatlitsa.com" class="sp-link" style="--c:#CF101A"><span class="sp-dot"></span><span class="sp-name">Svyatlitsa</span></a>
+  <a href="https://scyra.labs67.com" class="sp-link" style="--c:#00D4FF"><span class="sp-dot"></span><span class="sp-name">ŠČYRA.AI</span></a>
+  <a href="https://academi67.com" class="sp-link" style="--c:#1df59a"><span class="sp-dot"></span><span class="sp-name">SLYAH.AI</span></a>
+  <a href="https://trade.labs67.com" class="sp-link active" style="--c:#30dcff"><span class="sp-dot"></span><span class="sp-name">Skarby</span></a>
+  <a href="https://franchise.labs67.com" class="sp-link" style="--c:#ff4d6d"><span class="sp-dot"></span><span class="sp-name">SVITA</span></a>
+</aside>
+</body></html>
