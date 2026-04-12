@@ -42,8 +42,9 @@
   function isMobile() { return window.innerWidth <= 768; }
 
   var STORAGE_KEY = 'labs67lang';
-  var cur = localStorage.getItem(STORAGE_KEY) || 'be';
-  if (LANGS.indexOf(cur) === -1) cur = 'be';
+  var DEF = window.LABS67_DEFAULT_LANG || 'be';
+  var cur = localStorage.getItem(STORAGE_KEY) || DEF;
+  if (LANGS.indexOf(cur) === -1) cur = DEF;
 
   /* ── Resolve translation dict → always returns { key: { lang: val } } ── */
   function resolveDict() {
